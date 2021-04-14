@@ -11,6 +11,18 @@
     <script>
       var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebV3.json", {onProgress: UnityProgress});
     </script>
+    <script>
+    var recaptureInputAndFocus = function() {
+      var canvas = document.getElementById("#canvas");
+      if(canvas) {
+        canvas.setAttribute("tabindex", "1");
+        canvas.focus(); 
+      } else
+        setTimeout(recaptureInputAndFocus, 100);
+    }
+ 
+    recaptureInputAndFocus();
+    </script>
   </head>
   <body>
     <div class="webgl-content">
